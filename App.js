@@ -332,7 +332,6 @@ function App() {
     adServicesAtribution,
   ]);
 
-  ///////// Onesignal
   // b25959f9-30a4-48e1-829c-fe72a4b6c1f8
   ///////// OneSignall
   const requestPermission = () => {
@@ -560,13 +559,13 @@ function App() {
       await fetchIdfa(); //???
     }
   };
-  //
+
   ///////// Route useEff
   useEffect(() => {
     const checkUrl = `${INITIAL_URL}${URL_IDENTIFAIRE}`;
     //console.log(checkUrl);
 
-    const targetData = new Date('2025-01-16T10:00:00'); //дата з якої поч працювати webView
+    const targetData = new Date('2025-01-14T10:00:00'); //дата з якої поч працювати webView
     const currentData = new Date(); //текущая дата
 
     if (!route) {
@@ -681,7 +680,7 @@ function App() {
               //backgroundColor: 'rgba(0,0,0)',
             }}>
             <Animated.Image
-              source={require('./assets/newDiz/loader1.jpg')}
+              source={require('./assets/newDiz/loader11.jpg')}
               style={{
                 //...props.style,
                 opacity: appearingAnim,
@@ -691,7 +690,7 @@ function App() {
               }}
             />
             <Animated.Image
-              source={require('./assets/newDiz/loader2.jpg')}
+              source={require('./assets/newDiz/loader22.jpg')}
               style={{
                 //...props.style,
                 opacity: appearingSecondAnim,

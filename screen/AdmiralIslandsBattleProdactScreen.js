@@ -19,16 +19,12 @@ const AdmiralIslandsBattleProdactScreen = ({navigation, route}) => {
   const [addPartToLinkOnce, setAddPartToLinkOnce] = useState(
     route.params?.addPartToLinkOnce,
   );
-  //console.log('addPartToLinkOnce==>', addPartToLinkOnce);
-  ////////////////////////////////
   const [oneSignalId, setOneSignalId] = useState(route.params?.oneSignalId);
   const [idfa, setIdfa] = useState(route.params?.idfa);
   const [uid, setUid] = useState(route.params?.uid);
   const [sab, setSab] = useState(route.params?.sab1);
   const [adAtribution, setAdAtribution] = useState(route.params?.adAtribution);
-  //const [adKeywordId, setAdKeywordId] = useState(route.params?.adKeywordId);
   const [idfv, setIdfv] = useState(route.params?.idfv);
-  //console.log('idfvInProductScr============================>', idfv);
   const [customerUserId, setCustomerUserId] = useState(
     route.params?.customerUserId,
   );
@@ -149,12 +145,6 @@ const AdmiralIslandsBattleProdactScreen = ({navigation, route}) => {
   const [redirectUrl, setRedirectUrl] = useState(product);
   const [checkNineUrl, setCheckNineUrl] = useState();
   //console.log('checkNineUrl====>', checkNineUrl);
-
-  const handleShouldStartLoad = event => {
-    const {url} = event;
-    ////console.log('Should Start Load: ', url);
-    return true;
-  };
 
   const handleNavigationStateChange = navState => {
     const {url} = navState;
@@ -320,13 +310,6 @@ const AdmiralIslandsBattleProdactScreen = ({navigation, route}) => {
     return true;
   };
 
-  //ф-ція для повернення назад
-  const goBackBtn = () => {
-    if (refWebview && refWebview.current) {
-      refWebview?.current?.goBack();
-    }
-  };
-
   // Хендлер для кнопки "Назад" андроід
   useFocusEffect(
     React.useCallback(() => {
@@ -343,13 +326,6 @@ const AdmiralIslandsBattleProdactScreen = ({navigation, route}) => {
         BackHandler.removeEventListener('hardwareBackPress', onBackPress);
     }, []),
   );
-
-  //ф-ція для оновлення сторінки
-  const reloadPageBtn = () => {
-    if (refWebview && refWebview.current) {
-      refWebview?.current?.reload();
-    }
-  };
 
   ////////////////////////////
   const [isLoading, setIsLoading] = useState(true); // Стан завантаження
@@ -413,17 +389,6 @@ const AdmiralIslandsBattleProdactScreen = ({navigation, route}) => {
           console.log('nativeEvent', nativeEvent);
           console.log('targetUrl', targetUrl);
         }}
-        //onError={syntheticEvent => {
-        //  const {nativeEvent} = syntheticEvent;
-        //  const url = nativeEvent.url;
-        //  //console.warn('WebView error url ', nativeEvent.url);
-        //  // Якщо це специфічний URL, ігноруємо помилку
-        //  if (url.startsWith('bncmobile://')) {
-        //    return;
-        //  }
-        //
-        //  Alert.alert('Error', `Failed to load URL: ${url}`, [{text: 'OK'}]);
-        //}}
         textZoom={100}
         allowsBackForwardNavigationGestures={true}
         domStorageEnabled={true}
